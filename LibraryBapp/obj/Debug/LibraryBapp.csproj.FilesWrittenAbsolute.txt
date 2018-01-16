@@ -1,0 +1,12 @@
+/home/jose/Documentos/dotnet/mvc-mono/LibraryBapp/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/jose/Documentos/dotnet/mvc-mono/LibraryBapp/bin/Debug/LibraryBapp.pdb
+/home/jose/Documentos/dotnet/mvc-mono/LibraryBapp/bin/Debug/LibraryBapp.dll
+/home/jose/Documentos/dotnet/mvc-mono/LibraryBapp/obj/Debug/LibraryBapp.dll
+/home/jose/Documentos/dotnet/mvc-mono/LibraryBapp/obj/Debug/LibraryBapp.pdb
+/home/jose/Documentos/dotnet/mvc-mono/LibraryBapp/bin/Debug/Dapper.dll
+/home/jose/Documentos/dotnet/cr-facturas-admin/LibraryBapp/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/jose/Documentos/dotnet/cr-facturas-admin/LibraryBapp/bin/Debug/LibraryBapp.pdb
+/home/jose/Documentos/dotnet/cr-facturas-admin/LibraryBapp/bin/Debug/LibraryBapp.dll
+/home/jose/Documentos/dotnet/cr-facturas-admin/LibraryBapp/obj/Debug/LibraryBapp.dll
+/home/jose/Documentos/dotnet/cr-facturas-admin/LibraryBapp/obj/Debug/LibraryBapp.pdb
+/home/jose/Documentos/dotnet/cr-facturas-admin/LibraryBapp/bin/Debug/Dapper.dll

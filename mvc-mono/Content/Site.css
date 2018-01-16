@@ -1,0 +1,231 @@
+﻿#default .fa{
+    font-size:105px !important;
+    margin-bottom:64px;
+}
+
+.k-window-content .form-control{
+    width:90% !important;
+}
+
+
+/*estilo anterior*/
+
+#qr_ruta{
+    width:120px;
+    margin:0 auto;
+}
+
+.admin .admin_container .container.body-content.admin{
+    width:1100px;
+}
+
+.k-panelbar .k-tabstrip-items .k-state-active, .k-tabstrip-items .k-state-active{
+    background-color: #00b0ff !important;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+
+/*CUSTOM*/
+
+.padTop20{
+    padding-top: 20px;
+}
+
+#register_title{
+    width: 450px;
+    margin: 10px auto;
+    padding: 20px;
+    padding-bottom: 0;
+}
+
+#register_container,
+#login_container{
+    width: 450px;
+    margin: 48px auto;
+    padding: 20px;
+    /*border: 2px dashed lightgray;*/
+    min-height:100px;
+}
+
+/*home*/
+.vc_custom_1499631770640 {
+    background-image: url(http://ladesconocidakadath.com/wp-content/uploads/2017/07/cash-app2-dark.jpg?id=57) !important;
+}
+.vc_custom_1499630880781 {
+    background-image: url(http://ladesconocidakadath.com/wp-content/uploads/2017/07/cash-app3-dark.jpg?id=59) !important;
+}
+.vc_custom_1499624746346 {
+    background-image: url(http://ladesconocidakadath.com/wp-content/uploads/2017/07/cash-app7.jpg?id=41) !important;
+}
+
+.body-content{
+  padding:0 !important;
+  margin-top: -10px;
+}
+
+
+.qodef-info-box.qodef-animate .qodef-info-box-back-side{
+    background-color: #11b0cc !important;
+}
+
+footer{
+    background-color: #222222;
+    text-align:center;
+    padding: 32px 0;
+}
+
+/*body {
+    font-family: Raleway,sans-serif !important;
+    font-size: 14px;
+    line-height: 23px;
+    font-weight: 500 !important;
+    overflow-x: hidden!important;
+    -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 {
+    font-weight: 700;
+    font-family: Raleway,sans-serif !important;
+}*/
+
+
+/*registro  background-image: url(/Content/Imagenes/fondo-autobuses-1.jpg);*/
+.register_page .container_.body-content{
+    background-color:lightgray;
+    background-size: cover;
+}
+
+.register_page h2,
+.register_page h3,
+.register_page p{
+    color:white;
+}
+
+#register_container
+{
+    background-color:white;
+    border-radius: 5px;
+    margin-bottom: 64px;
+}
+
+/*login - background-image: url(/Content/Imagenes/fondo-autobuses-2.jpg);*/
+.login_page .container_.body-content{
+    background-color:lightgray;
+    background-size: cover;
+}
+
+.login_page h2,
+.login_page h3,
+.login_page p{
+    color:white;
+}
+
+#login_container
+{
+    background-color:white;
+    border-radius: 5px;
+    margin-bottom: 242px;
+    /* min-height:417px; */
+}
+.container.body-content{
+    min-height: 500px;
+}
+
+/*admin*/
+.admin_container{
+    width:100%;
+    background-color: #E9EBEF;
+}
+.container.body-content.admin{
+    min-height: 600px;
+    width:1000px;/*900px*/
+    margin: 51px auto;
+}
+.panel-body._buttons h2{
+    color:#0094DA;
+}
+body.admin .navbar-inverse {
+    background-color: #0094DA !important;
+    border-color: #0094DA !important;
+    color:white !important;
+}
+body.admin .navbar-inverse a {
+    color:white !important;
+}
+input,
+select,
+textarea {
+    max-width: 100% !important;
+}
+.k-widget form,
+.k-widget .row,
+.k-widget .row div{
+  box-sizing: border-box;
+}
+.control-label, label{
+    font-weight: 600 !important;
+}
+.k-dropdown.form-control{
+    padding-bottom: 5px !important;
+}

@@ -1,0 +1,91 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<div id="wrapper">
+  <div class="content">
+	<div class="row">
+	  <div class="col-md-12">
+			<div class="panel_s">
+			  <div class="panel-body _buttons">
+			  	<h2>@ViewData["Message"]</h2>
+
+			  	<div class="row busqueda_seleccion" style="display:none;">
+				  <div class="col-md-2">
+					  	<input id="id_rol_seleccion" />
+						<span>&nbsp;&nbsp;&nbsp;</span>
+					</div>
+					<div class="col-md-2">
+					  	<input id="nombre_seleccion" placeholder="Apellido" type="text" />
+						
+					</div>
+					<div class="col-md-2">
+					  	<input id="empresa_seleccion" placeholder="Empresa" type="text" />
+						
+					</div>
+					<div class="col-md-2">
+					  	<input id="email_seleccion" placeholder="Email" type="text" />
+						
+					</div>
+					<div class="col-md-2">
+						<input type="button" id="btn_rol_seleccion" class="btn btn-info pull-left"
+						value="Buscar">
+					</div>
+					<div class="col-md-2">
+						<a class="pull-right" href="/wp-content/uploads/DIRECTORIO NACIONAL ed.csv" target="_blank"> Descargar Template</a>
+						<input name="files" id="upload_registro" type="file" style="float:right;margin-right:10px;" />
+					</div>
+				</div>
+				<a href="#" id="btn_add_empresas" class="btn btn-info pull-left" >Crear Nuevo</a>
+			  </div>
+			</div>
+			<div class="panel_s">
+				<div class="panel-body">
+					<div class="clearfix"></div>
+					<div id="grid_empresas" ></div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+
+
+<div id="window_empresas" style="display:none;">
+	<form>
+		<input type="hidden" name="EmpresaId" value="0"/>
+		<div class="panel_s container" style="width:100%; min-height:100px;">
+			<div class="row">
+				<div class="col-md-12">
+					<label for="Nombre" class="control-label">Nombre</label>
+					<input type="text" name="Nombre" class="form-control" required validationMessage="* Ingresa el Nombre" >
+				</div>
+			</div>	
+			<div class="row padTop20">
+				<div class="col-md-12">
+					<label for="Telefono" class="control-label">Teléfono</label>
+					<input type="text" name="Telefono" class="form-control" required validationMessage="* Ingresa el Teléfono" >
+				</div>
+			</div>
+			<div class="row padTop20">
+				<div class="col-md-12">
+					<label for="Direccion" class="control-label">Direccion</label>
+					<input type="text" name="Direccion" class="form-control" required validationMessage="* Ingresa la Direccion" >
+				</div>
+			</div>
+
+			<div class="row padTop20">
+				<div class="col-md-12">
+					<label for="Status" class="control-label">Status</label>
+					<input type="text" name="Status" class="form-control" required validationMessage="* Ingresa el Status" >
+				</div>
+			</div>
+			
+		</div>
+		<div class="modal-footer">
+			<button type="submit" class="btn btn-info">Enviar</button>
+		</div>
+	</form>
+</div>

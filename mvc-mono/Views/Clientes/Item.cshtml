@@ -1,0 +1,97 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<script src="~/Scripts/Admin/clientes.js"></script>
+<div id="wrapper">
+  <div class="content">
+	<div class="row">
+	  <div class="col-md-12">
+			<div class="panel_s">
+			  <div class="panel-body">
+			  	<h2 class="pull-left">@ViewData["Message"]</h2>
+				<i class="fa fa-remove pull-right"></i>
+			  </div>
+			</div>
+
+			<div class="panel_s">
+				<div class="panel-body">
+					<div id="window_clientes" style="">
+						<form>
+							<input type="hidden" name="ClienteId" value="0"/>
+							<div class="panel_s _container" style="width:100%; min-height:100px;">
+								<div class="row">
+									<div class="col-md-4">
+										<label for="Nombre" class="control-label">Nombre</label>
+										<input type="text" name="Nombre" class="form-control" required validationMessage="* Ingresa el Nombre" >
+									</div>
+									<div class="col-md-4">
+										<label for="Apellido1" class="control-label">Apellido 1</label>
+										<input type="text" name="Apellido1" class="form-control" required validationMessage="* Ingresa el Apellido 1" >
+									</div>
+									<div class="col-md-4">
+										<label for="Apellido2" class="control-label">Apellido 2</label>
+										<input type="text" name="Apellido2" class="form-control" required validationMessage="* Ingresa el Apellido 2" >
+									</div>
+								</div>	
+								<div class="row">
+									<div class="col-md-4">
+										<label for="Telefono1" class="control-label">Teléfono 1</label>
+										<input type="text" name="Telefono1" class="form-control" required validationMessage="* Ingresa el Teléfono 1" >
+									</div>
+									<div class="col-md-4">
+										<label for="Telefono2" class="control-label">Télefono 2</label>
+										<input type="text" name="Telefono2" class="form-control" required validationMessage="* Ingresa el Télefono 2" >
+									</div>
+									<div class="col-md-4">
+										<label for="Telefono3" class="control-label">Telefono3</label>
+										<input type="text" name="Telefono3" class="form-control" required validationMessage="* Ingresa el Teléfono 3" >
+									</div>
+								</div>	
+								<div class="row">
+									<div class="col-md-4">
+										<label for="Correo" class="control-label">Correo</label>
+										<input type="text" name="Correo" class="form-control" required validationMessage="* Ingresa la Correo" >
+									</div>
+									<div class="col-md-4">
+										<label for="Cumpleaños" class="control-label">Cumpleaños</label>
+										<input type="text" name="Cumpleaños" class="form-control" required validationMessage="* Ingresa la Cumpleaños" >
+									</div>
+									<div class="col-md-4">
+										<label for="RecomendadoPorClienteId" class="control-label">Recomendado Por Cliente</label>
+										<input type="text" name="RecomendadoPorClienteId" class="form-control" required validationMessage="* Ingresa si es Recomendado Por Cliente" >
+									</div>
+								</div>	
+								<div class="row">
+									<div class="col-md-4">
+										<label for="Status" class="control-label">Status</label>
+										<input type="text" name="Status" class="form-control" required validationMessage="* Ingresa el Status" >
+									</div>
+									<div class="col-md-4">
+										<label for="CreditoDisponible" class="control-label">Crédito Disponible</label>
+										<input type="text" name="CreditoDisponible" class="form-control" required validationMessage="* Ingresa el Crédito Disponible" >
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-info">Enviar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel_s">
+				<div class="panel-body">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+
+
+

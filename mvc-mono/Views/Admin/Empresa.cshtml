@@ -1,0 +1,222 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content">
+    <div class="panel_s" style="">
+        <div class="panel-body _buttons">
+            <h2>@ViewData["Message"]</h2>
+        </div>
+    </div>
+
+    <div class="panel_s" style="">
+        <div class="panel-body">
+
+            <div id="tabstrip-empresa">
+                <ul>
+                    <li class="k-state-active">
+                        Categorías de Productos
+                    </li>
+                    <li>
+                        Empleados
+                    </li>
+                    <li>
+                        Clientes
+                    </li>
+                    <li>
+                        Sucursales
+                    </li>
+                    <li id="log_out">
+                        <span>Salir</span>
+                    </li>
+                </ul>
+                <div id="categorias">
+                    <div class="panel_s">
+					  <div class="panel-body _buttons">
+					  	<h2 class="pull-left">Categorías de Productos</h2>
+						<a href="#" id="btn_add_categorias" class="pull-right" ><i class="fa fa-plus"></i></a>
+					  </div>
+					</div>
+					<div class="panel_s">
+						<div class="panel-body">
+							<div class="clearfix"></div>
+							<div id="grid_categorias" ></div>
+						</div>
+					</div>
+                </div>
+                <div id="empleados">
+                    <div class="panel_s">
+					  <div class="panel-body _buttons">
+					  	<h2>Empleados</h2>
+					  	<div class="row busqueda_seleccion" style="display:none;">
+						  <div class="col-md-2">
+							  	<input id="id_rol_seleccion" />
+								<span>&nbsp;&nbsp;&nbsp;</span>
+							</div>
+						</div>
+						<a href="#" id="btn_add_empleados" class="btn btn-info pull-left" >Crear Nuevo</a>
+					  </div>
+					</div>
+					<div class="panel_s">
+						<div class="panel-body">
+							<div class="clearfix"></div>
+							<div id="grid_empleados" ></div>
+						</div>
+					</div>
+                </div>
+                <div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            &nbsp;
+                        </div>
+                        <div class="col-md-4">
+                            <input id="dropdown_rutas" />
+                        </div>
+                        <div class="col-md-4">
+                            <span id='btn_generar_codigo_qr' class='btn btn-info'>Generar Codigo QR</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            &nbsp;
+                        </div>
+                        <div class="row">
+                            <div id="qr_ruta"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div id="search_movimientos" class="row padTop20">
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-4">
+                            <input name="initial_date" />
+                        </div>
+                        <div class="col-md-4">
+                            <input name="final_date" />
+                        </div>
+                        <div class="col-md-3">
+                            <button id="search" class="btn btn-info">Buscar</button>
+                        </div>
+                    </div>
+
+                    <div class"row">
+                        <div style="width:900px; margin:48px auto;">
+                            <div id="grid_movimientos"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span>&nbsp;</span>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div id="window_categorias" style="display:none;">
+	<form>
+		<input type="hidden" name="CategoriaId" value="0"/>
+		<div class="panel_s _container" style="width:100%; min-height:100px;">
+			<div class="row">
+				<div class="col-md-6">
+					<label for="Nombre" class="control-label">Nombre</label>
+					<input type="text" name="Nombre" class="form-control" required validationMessage="* Ingresa el Nombre" >
+				</div>
+				<div class="col-md-6">
+					<label for="CategoríaPadreId" class="control-label">CategoríaPadreId</label>
+					<input type="text" name="CategoríaPadreId" class="form-control" required validationMessage="* Ingresa la Categoría Padre" >
+				</div>
+			</div>	
+			
+		</div>
+		<div class="modal-footer">
+			<button type="submit" class="btn btn-info">Enviar</button>
+		</div>
+	</form>
+</div>
+
+<div id="window_empleados" style="display:none;">
+	<form>
+		<input type="hidden" name="EmpleadoId" value="0"/>
+		<div class="panel_s _container" style="width:100%; min-height:100px;">
+			<div class="row">
+				<div class="col-md-6">
+					<label for="Nombre" class="control-label">Nombre</label>
+					<input type="text" name="Nombre" class="form-control" required validationMessage="* Ingresa el Nombre" >
+				</div>
+				<div class="col-md-6">
+					<label for="Apellido1" class="control-label">Apellido 1</label>
+					<input type="text" name="Apellido1" class="form-control" required validationMessage="* Ingresa el Apellido 1" >
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-md-6">
+					<label for="Apellido2" class="control-label">Apellido 2</label>
+					<input type="text" name="Apellido2" class="form-control" required validationMessage="* Ingresa el Apellido 2" >
+				</div>
+				<div class="col-md-6">
+					<label for="Telefono1" class="control-label">Teléfono 1</label>
+					<input type="text" name="Telefono1" class="form-control" required validationMessage="* Ingresa el Teléfono 1" >
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-md-6">
+					<label for="Telefono2" class="control-label">Télefono 2</label>
+					<input type="text" name="Telefono2" class="form-control" required validationMessage="* Ingresa el Télefono 2" >
+				</div>
+				<div class="col-md-6">
+					<label for="Apodo" class="control-label">Apodo</label>
+					<input type="text" name="Apodo" class="form-control" required validationMessage="* Ingresa el Apodo" >
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-md-6">
+					<label for="Identificacion" class="control-label">Identificación</label>
+					<input type="text" name="Identificacion" class="form-control" required validationMessage="* Ingresa la Identificación" >
+				</div>
+				<div class="col-md-6">
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-md-6">
+					<label for="Foto" class="control-label">Foto</label>
+					<input type="text" name="Foto" class="form-control" required validationMessage="* Ingresa la Foto" >
+				</div>
+				<div class="col-md-6">
+					<label for="Horario" class="control-label">Horario</label>
+					<input type="text" name="Horario" class="form-control" required validationMessage="* Ingresa el Horario" >
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-md-6">
+					<label for="TipoPago" class="control-label">Tipo de Pago</label>
+					<input type="text" name="TipoPago" class="form-control" required validationMessage="* Ingresa el Tipo de Pago" >
+				</div>
+				<div class="col-md-6">
+					<label for="Puesto" class="control-label">Puesto</label>
+					<input type="text" name="Puesto" class="form-control" required validationMessage="* Ingresa el Puesto" >
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<label for="Status" class="control-label">Status</label>
+					<input type="text" name="Status" class="form-control" required validationMessage="* Ingresa el Status" >
+				</div>
+				<div class="col-md-6">
+					
+				</div>
+			</div>
+
+		</div>
+		<div class="modal-footer">
+			<button type="submit" class="btn btn-info">Enviar</button>
+		</div>
+	</form>
+</div>

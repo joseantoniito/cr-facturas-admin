@@ -1,0 +1,90 @@
+﻿
+
+
+<div id="register_title" class="row">
+    @{
+        ViewData["Title"] = "Registro";
+    }
+    <h2>@ViewData["Title"].</h2>
+    <h3>@ViewData["Message"]</h3>
+
+    <p>Por favor ingresa tu informacion en el siguiente formulario</p>
+</div>
+
+
+<div id="register_container" style="">
+    <div class"row">
+        <div class"col-md-12">
+            <form>
+                <!--<input type="hidden" name="id" />-->
+                <div class="panel_s container" style="width:100%; min-height:100px;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">Nombre</label>
+                            <input type="text" name="Nombre" class="form-control"
+                                   required validationmessage="* Ingresa tu Nombre">
+                        </div>
+                    </div>
+
+                    <div class="row padTop20">
+                        <div class="col-md-12">
+                            <label for="id_cat" class="control-label">Correo</label>
+                            <input type="text" name="Correo" class="form-control"
+                                   required validationmessage="* Ingresa tu Correo">
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">Clave</label>
+                            <input type="password" name="Clave" class="form-control"
+                                   required validationmessage="* Ingresa tu Clave">
+                        </div>
+                    </div>
+
+                    <div class="row padTop20">
+                        <div class="col-md-12">
+                            <label class="control-label">Telefono</label>
+                            <input type="text" name="Telefono" class="form-control"
+                                   required validationmessage="* Ingresa tu Telefono">
+                        </div>
+                    </div>
+
+                    <div class="row padTop20">
+                        <div class="col-md-12">
+                            <label class="control-label">Cedula Juridica</label>
+                            <input type="text" name="CedulaJuridica" class="form-control"
+                                   required validationmessage="* Ingresa tu Cedula Juridica">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">Nombre Representante Legal</label>
+                            <input type="text" name="NombreRepresentanteLegal" class="form-control"
+                                   required validationmessage="* Ingresa tu Nombre Representante Legal">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">Cedula Representante Legal</label>
+                            <input type="text" name="CedulaRepresentanteLegal" class="form-control"
+                                   required validationmessage="* Ingresa tu Cedula Representante Legal">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="btn_close_window_lead" type="button" class="btn btn-default">Cerrar</button>
+                    <button type="submit" class="btn btn-info">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+

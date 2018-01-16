@@ -1,0 +1,48 @@
+﻿
+
+
+<div id="register_title" class="row">
+    @{
+        ViewData["Title"] = "LogIn";
+    }
+    <h2>@ViewData["Title"].</h2>
+    <h3>@ViewData["Message"]</h3>
+
+    <p>Favor de ingresar sus credenciales para iniciar sesion</p>
+</div>
+
+
+<div id="login_container" style="">
+    <div class"row">
+        <div class"col-md-12">
+            <form>
+                <input type="hidden" name="id" />
+                <div class="panel_s container" style="width:100%; min-height:100px;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="nombre" class="control-label">Email</label>
+                            <input type="text" name="Email" class="form-control required" title="* Ingresa tu nombre"
+                                   aria-required="true">
+                        </div>
+                    </div>
+
+                    <div class="row padTop20">
+                        <div class="col-md-12">
+                            <label for="lugar" class="control-label">Password</label>
+                            <input type="password" name="PasswordHash" class="form-control required" title="* Ingresa tu Lugar"
+                                   aria-required="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn_close_window_lead" type="button" class="btn btn-default">Cerrar</button>
+                    <button type="submit" class="btn btn-info">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+

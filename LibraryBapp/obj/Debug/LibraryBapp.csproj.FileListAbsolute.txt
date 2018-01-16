@@ -1,0 +1,7 @@
+C:\CCP\SitioWebBapp\LibraryBapp\bin\Debug\LibraryBapp.dll
+C:\CCP\SitioWebBapp\LibraryBapp\bin\Debug\LibraryBapp.pdb
+C:\CCP\SitioWebBapp\LibraryBapp\bin\Debug\Dapper.dll
+C:\CCP\SitioWebBapp\LibraryBapp\bin\Debug\Dapper.xml
+C:\CCP\SitioWebBapp\LibraryBapp\obj\Debug\LibraryBapp.dll
+C:\CCP\SitioWebBapp\LibraryBapp\obj\Debug\LibraryBapp.pdb
+C:\CCP\SitioWebBapp\LibraryBapp\obj\Debug\LibraryBapp.csprojResolveAssemblyReference.cache
