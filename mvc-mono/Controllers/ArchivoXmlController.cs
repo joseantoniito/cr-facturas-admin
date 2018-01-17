@@ -9,13 +9,13 @@ using Microsoft.Owin.Security.Cookies;
 namespace WebApp.Controllers
 {
 	[Authorize]
-    public class CitasController : Controller
+    public class ArchivoXmlController : Controller
     {
         public ActionResult Index()
         {
 			return View ();
         }
-
+		/*
 		//REST
 		[HttpGet]
 		public JsonResult ObtenerAgendas()
@@ -69,7 +69,7 @@ namespace WebApp.Controllers
 			var message = dbHelper.GuardarHistorialVisita(item);
 
 			return Json(item);
-		}
+		}*/
 
     }
 }

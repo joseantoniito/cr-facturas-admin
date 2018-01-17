@@ -3,9 +3,9 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="mvc-mono/Content/Site.css">
     <Files>
       <File FileName="../../../../../media/jose/TOSHIBA EXT/working/Freelancer/Admin Salon - Costa Rica/NOTAS SISTEMA SALON COSTA RICA.txt" Line="1" Column="1" />
-      <File FileName="mvc-mono/Scripts/Admin/productos.js" Line="5" Column="14" />
-      <File FileName="mvc-mono/Content/Site.css" Line="4" Column="2" />
-      <File FileName="mvc-mono/Views/Admin/Default.cshtml" Line="6" Column="17" />
+      <File FileName="mvc-mono/Scripts/Admin/productos.js" Line="1" Column="1" />
+      <File FileName="mvc-mono/Content/Site.css" Line="16" Column="2" />
+      <File FileName="mvc-mono/Views/Admin/Default.cshtml" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -41,7 +41,7 @@ namespace WebApp.Controllers
 			}
 
 
-
+			/*
 			[HttpGet]
 			public JsonResult ObtenerCategorias()
 			{
@@ -68,7 +68,7 @@ namespace WebApp.Controllers
 
 				return Json(item);
 			}
-
+*/
 
 				
 			

@@ -26,7 +26,7 @@ namespace WebApp.Controllers
 			return View();
 		}
 
-
+		/*
 		//REST
 		[HttpGet]
 		public JsonResult ObtenerClientes()
@@ -53,6 +53,6 @@ namespace WebApp.Controllers
 			var message = dbHelper.GuardarCliente(item);
 
 			return Json(item);
-		}
+		}*/
 	}
 }

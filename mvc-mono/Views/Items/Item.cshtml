@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+<script src="~/Scripts/Admin/items.js"></script>
+
+<div id="wrapper">
+  <div class="content">
+	<div class="row">
+	  <div class="col-md-12">
+			<div class="panel_s">
+			  <div class="panel-body">
+			  	<h2 class="pull-left">@ViewData["Message"]</h2>
+				<i class="fa fa-remove pull-right"></i>
+			  </div>
+			</div>
+
+			<div class="panel_s">
+				<div class="panel-body">
+					<div id="window_items" style="">
+						<form>
+							<input type="hidden" name="ItemId" value="0"/>
+							<div class="panel_s _container" style="width:100%; min-height:100px;">
+								<div class="row">
+									<div class="col-md-4">
+										<label for="TipoItem" class="control-label">Tipo</label>
+										<input type="text" name="TipoItem" class="form-control" required validationMessage="* Ingresa el Tipo de Item" >
+									</div>
+									<div class="col-md-4">
+										<label for="Descripcion" class="control-label">Descripción</label>
+										<input type="text" name="Descripcion" class="form-control" required validationMessage="* Ingresa el Descripción" >
+									</div>
+									<div class="col-md-4">
+										<label for="MontoItem" class="control-label">Monto</label>
+										<input type="text" name="MontoItem" class="form-control" required validationMessage="* Ingresa el Monto" >
+									</div>
+								</div>	
+								<div class="row">
+									<div class="col-md-4">
+										<label for="Moneda" class="control-label">Moneda</label>
+										<input type="text" name="Moneda" class="form-control" required validationMessage="* Ingresa el Moneda" >
+									</div>
+									<div class="col-md-4">
+										<label for="Activo" class="control-label">Activo</label>
+										<input type="text" name="Activo" class="form-control" required validationMessage="* Ingresa el Activo" >
+									</div>
+									<div class="col-md-4">
+									</div>
+								</div>	
+							</div>
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-info">Enviar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel_s">
+				<div class="panel-body">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+
+
+

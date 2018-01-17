@@ -3,29 +3,20 @@
 $(document).ready(function(){
 	
 	function load_items_productos(){
-		var item_str = "productos";
+		var item_str = "items";
 		var form = $("#window_{0} form".format(item_str));
 
-		////ProductoId, EmpresaId, Nombre, Codigo, CodigoBarras, ProveedorId, TipoProductoId, 
-		//CategoriaId, SubCategoriaId, PrecioCompra, PrecioFinal, Existencias, Impuesto, VistoEnFacturacion					
 		function create_grid_items(){  
 			if($("#grid_{0}".format(item_str)).length == 0) return;
 			var grid;
 			var columns = [
-				{field: "Nombre", title: "Nombre"},
-				{field: "Codigo", title: "Código"},
-				{field: "CodigoBarras", title: "Código de Barras"},
-				{field: "ProveedorId", title: "Proveedor"},
-				{field: "TipoProductoId", title: "Tipo de Producto"},
-				{field: "CategoriaId", title: "Categoría"},
-				{field: "SubCategoriaId", title: "Sub Categoría"},
-				{field: "PrecioCompra", title: "Precio de Compra"},
-				//{field: "PrecioFinal", title: "Precio Final"},
-				//{field: "Existencias", title: "Existencias"},
-				//{field: "Impuesto", title: "Impuesto"},
-				//{field: "VistoEnFacturacion", title: "Visto En Facturacion"},
-				{field:"ProductoId", title:"Acciones", width:"100px", 
-				template: "<a  id='btn_ver' href='/Productos/Item/#:ProductoId#'><i _id='#:ProductoId#' id='btn_editar' class='fa fa-pencil-square' title='Editar'></i></a>"}
+				{field: "TipoItem", title: "Tipo"},
+				{field: "Descripcion", title: "Descripción"},
+				{field: "MontoItem", title: "Monto"},
+				{field: "Moneda", title: "Moneda"},
+				{field: "Activo", title: "Activo"},
+				{field:"ItemId", title:"Acciones", width:"100px", 
+				template: "<a  id='btn_ver' href='/Items/Item/#:ItemId#'><i _id='#:ItemId#' id='btn_editar' class='fa fa-pencil-square' title='Editar'></i></a>"}
 			];
 
 			function data_bound_items(e){
@@ -36,7 +27,7 @@ $(document).ready(function(){
 			}; 
 
 			//INIT
-			$.get('/Productos/ObtenerProductos/', function(response) {
+			$.get('/Items/ObtenerItems/', function(response) {
 				grid = create_grid(item_str, response, columns, data_bound_items);
 			}, 'json');
 		}
@@ -49,7 +40,7 @@ $(document).ready(function(){
 				console.log("entro a editar");
 				var sender = $(event.currentTarget);
 				var id = sender.attr("_id");
-				form.find("[name='productoId']").val(id);
+				form.find("[name='ItemId']").val(id);
 				
 				var item = sender.parent().parent();
 				//var data = $("#grid_"+item_str).data("kendoGrid").dataItem(item);
@@ -62,13 +53,13 @@ $(document).ready(function(){
 
 			function clear_controls(){
 				form.find("input[name]").val("");
-				form.find("[name='productoId']").val("0");
+				form.find("[name='ItemId']").val("0");
 			}
 
 			function register_item(){
 				if(!validator.validate()) return false;
 
-				var url = '/Productos/GuardarProducto';
+				var url = '/Items/GuardarItem';
 				var data = get_data_object_from_form("form");
 				var fn_compare_id = function(item, response){
 						return item.productoId == response.productoId;
@@ -78,7 +69,7 @@ $(document).ready(function(){
 			}
 
 			if(get_id_from_url() != 0)
-				$.get('/Productos/ObtenerProducto/'+get_id_from_url(), function(response) {
+				$.get('/Items/ObtenerItem/'+get_id_from_url(), function(response) {
 					edit_item({ currentTarget: $("<span></span>").attr("_id", get_id_from_url()) }, response);
 				}, 'json');
 			//window = create_window_controls(item_str, clear_controls);

@@ -42,7 +42,231 @@ namespace LibraryBapp
 		}
 
 
+		public List<FacturaManual> ObtenerFacturaManuals(int id)
+		{
+			var strQuery =
+				@"SELECT 
+					FacturaManualId, 
+					EmpresaId, 
+					Registrado, 
+					UsuarioId, 
+					Consecutivo, 
+					Observaciones, 
+					EstadoFactura,
+					Moneda, 
+					MontoTotal, 
+					MontoCobrado, 
+					MontoDescuento, 
+					MontoBruto, 
+					TipoPago, 
+					ArchivoXMLId, 
+					ClienteId
+				FROM FactElect.dbo.FacturaManual
+				WHERE EmpresaId = @id
+                ";
+			var list = 
+				_cn.Query<FacturaManual>(
+					strQuery,
+					new { id }
+				).ToList();
+			return list;
+		}
 
+		public FacturaManual ObtenerFacturaManual(int id)
+		{
+			var strQuery =
+				@"SELECT 
+					FacturaManualId, 
+					EmpresaId, 
+					Registrado, 
+					UsuarioId, 
+					Consecutivo, 
+					Observaciones, 
+					EstadoFactura,
+					Moneda, 
+					MontoTotal, 
+					MontoCobrado, 
+					MontoDescuento, 
+					MontoBruto, 
+					TipoPago, 
+					ArchivoXMLId, 
+					ClienteId
+				FROM FactElect.dbo.FacturaManual
+				WHERE FacturaManualId = @id
+                ";
+
+			var item = _cn.Query<FacturaManual>(
+				strQuery,
+				new { id }
+			).SingleOrDefault();
+
+			return item;
+		}
+
+		public FacturaManual GuardarFacturaManual(FacturaManual item)
+		{
+			if (item.FacturaManualId == 0) {
+				var id = _cn.Query<int> (
+					@"INSERT INTO FactElect.dbo.FacturaManual(
+						EmpresaId, 
+						Registrado, 
+						UsuarioId, 
+						Consecutivo, 
+						Observaciones, 
+						EstadoFactura,
+						Moneda, 
+						MontoTotal, 
+						MontoCobrado, 
+						MontoDescuento, 
+						MontoBruto, 
+						TipoPago, 
+						ArchivoXMLId, 
+						ClienteId
+	                )
+	                VALUES(
+						@EmpresaId, 
+						@Registrado, 
+						@UsuarioId, 
+						@Consecutivo, 
+						@Observaciones, 
+						@EstadoFactura,
+						@Moneda, 
+						@MontoTotal, 
+						@MontoCobrado, 
+						@MontoDescuento, 
+						@MontoBruto, 
+						@TipoPago, 
+						@ArchivoXMLId, 
+						ClienteId
+	                )
+	                SELECT CAST(SCOPE_IDENTITY() as int)",
+					item
+				).SingleOrDefault ();
+				item.FacturaManualId = id;
+			} 
+			else {
+				_cn.Execute(
+					@"UPDATE FactElect.dbo.FacturaManual
+                    SET 
+						EmpresaId = @EmpresaId, 
+						Registrado = @Registrado, 
+						UsuarioId = @UsuarioId, 
+						Consecutivo = @Consecutivo, 
+						Observaciones = @Observaciones, 
+						EstadoFactura = @EstadoFactura,
+						Moneda = @Moneda, 
+						MontoTotal = @MontoTotal, 
+						MontoCobrado = @MontoCobrado, 
+						MontoDescuento = @MontoDescuento, 
+						MontoBruto = @MontoBruto, 
+						TipoPago = @TipoPago, 
+						ArchivoXMLId = @ArchivoXMLId, 
+						ClienteId = @ClienteId
+                    WHERE FacturaManualId = @FacturaManualId",
+					item);
+			}
+
+			return item;
+		}
+
+
+
+		public List<FacturaManualLinea> ObtenerFacturaManualLineas(int id)
+		{
+			//FacturaManualId, FacturaManualLineaId, TipoItem, ObservacionAdicional, MontoLineaCobrado, 
+			//PrecioUnitario, Cantidad, MontoLineaCalculado, Codigo, ItemId
+
+			var strQuery =
+				@"SELECT 
+					FacturaManualId, 
+					FacturaManualLineaId, 
+					TipoItem, 
+					ObservacionAdicional, 
+					MontoLineaCobrado, 
+					PrecioUnitario, 
+					Cantidad,
+					MontoLineaCalculado, 
+					Codigo, 
+					ItemId
+				FROM FactElect.dbo.FacturaManualLinea
+				WHERE EmpresaId = @id
+                ";
+			var list = 
+				_cn.Query<FacturaManualLinea>(
+					strQuery,
+					new { id }
+				).ToList();
+			return list;
+		}
+
+		public FacturaManualLinea ObtenerFacturaManualLinea(int id)
+		{
+			var strQuery =
+				@"SELECT 
+					FacturaManualId, 
+					FacturaManualLineaId, 
+					TipoItem, 
+					ObservacionAdicional, 
+					MontoLineaCobrado, 
+					PrecioUnitario, 
+					Cantidad,
+					MontoLineaCalculado, 
+					Codigo, 
+					ItemId
+				FROM FactElect.dbo.FacturaManualLinea
+				WHERE FacturaManualLineaId = @id
+                ";
+
+			var FacturaManualLinea = _cn.Query<FacturaManualLinea>(
+				strQuery,
+				new { id }
+			).SingleOrDefault();
+
+			return FacturaManualLinea;
+		}
+
+		public FacturaManualLinea GuardarFacturaManualLinea(FacturaManualLinea FacturaManualLinea)
+		{
+			if (FacturaManualLinea.FacturaManualLineaId == 0) {
+				var id = _cn.Query<int> (
+					@"INSERT INTO FactElect.dbo.FacturaManualLinea(
+						@
+	                )
+	                VALUES(
+						@FacturaManualId, 
+						@TipoItem, 
+						@ObservacionAdicional, 
+						@MontoLineaCobrado, 
+						@PrecioUnitario, 
+						@Cantidad,
+						@MontoLineaCalculado, 
+						@Codigo, 
+						@ItemId
+	                )
+	                SELECT CAST(SCOPE_IDENTITY() as int)",
+					FacturaManualLinea
+				).SingleOrDefault ();
+				FacturaManualLinea.FacturaManualLineaId = id;
+			} 
+			else {
+				_cn.Execute(
+					@"UPDATE FactElect.dbo.FacturaManualLinea
+                    SET 
+						FacturaManualId = @FacturaManualId,
+						TipoItem = @TipoItem, 
+						ObservacionAdicional = @ObservacionAdicional, 
+						MontoLineaCobrado = @MontoLineaCobrado, 
+						PrecioUnitario = @PrecioUnitario, 
+						Cantidad = @Cantidad,
+						MontoLineaCalculado = @MontoLineaCalculado, 
+						Codigo = @Codigo, 
+						ItemId = @ItemId
+                    WHERE FacturaManualLineaId = @FacturaManualLineaId",
+					FacturaManualLinea);
+			}
+
+			return FacturaManualLinea;
+		}
 	}
 }
 

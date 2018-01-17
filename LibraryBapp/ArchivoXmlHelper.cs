@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace LibraryBapp
 {
-	public class ClientesHelper : IDisposable
+	public class EmpleadosHelper : IDisposable
 	{
 		IDbConnection _cn;
 		public static IDbConnection GetConnection()
@@ -24,7 +24,7 @@ namespace LibraryBapp
 			return new SqlConnection( connection_str_1);
 		}
 
-		public ClientesHelper(IDbConnection cn)
+		public EmpleadosHelper(IDbConnection cn)
 		{
 			_cn = cn;
 		}
@@ -40,59 +40,61 @@ namespace LibraryBapp
 			if (_cn.State == ConnectionState.Open)
 				_cn.Close();
 		}
+			
 
-
-
-		public List<Cliente> ObtenerClientes(int id)
+		/*
+		public List<Empleado> ObtenerEmpleados(int id)
 		{
 			var strQuery =
 				@"SELECT 
-					ClienteId, 
+					EmpleadoId, 
 					EmpresaId, 
 					Nombre, 
 					Apellido1, 
 					Apellido2, 
 					Telefono1, 
 					Telefono2, 
-					Telefono3, 
-					Correo,
-					Cumpleaños,
-					RecomendadoPorClienteId,
-					Status,
-					CreditoDisponible
-				FROM CCSoftDB.dbo.Cliente
+					Apodo, 
+					Identificacion, 
+					Foto, 
+					Horario, 
+					TipoPago, 
+					Puesto, 
+					Status
+				FROM CCSoftDB.dbo.Empleado
 				WHERE EmpresaId = @id
                 ";
 			var list = 
-				_cn.Query<Cliente>(
+				_cn.Query<Empleado>(
 					strQuery,
 					new { id }
 				).ToList();
 			return list;
 		}
 
-		public Cliente ObtenerCliente(int id)
+		public Empleado ObtenerEmpleado(int id)
 		{
 			var strQuery =
 				@"SELECT 
-					ClienteId, 
+					EmpleadoId, 
 					EmpresaId, 
 					Nombre, 
 					Apellido1, 
 					Apellido2, 
 					Telefono1, 
 					Telefono2, 
-					Telefono3, 
-					Correo,
-					Cumpleaños,
-					RecomendadoPorClienteId,
-					Status,
-					CreditoDisponible
-				FROM CCSoftDB.dbo.Cliente
-				WHERE ClienteId = @id
+					Apodo, 
+					Identificacion, 
+					Foto, 
+					Horario, 
+					TipoPago, 
+					Puesto, 
+					Status
+				FROM CCSoftDB.dbo.Empleado
+				WHERE EmpleadoId = @id
                 ";
 
-			var item = _cn.Query<Cliente>(
+			var item = _cn.Query<Empleado>(
 				strQuery,
 				new { id }
 			).SingleOrDefault();
@@ -100,23 +102,26 @@ namespace LibraryBapp
 			return item;
 		}
 
-		public Cliente GuardarCliente(Cliente item)
+		public Empleado GuardarEmpleado(Empleado empleado)
 		{
-			if (item.ClienteId == 0) {
-				var id = _cn.Query<int> (
-					@"INSERT INTO CCSoftDB.dbo.Cliente(
+			//EmpleadoId, EmpresaId, Nombre, Apellido1, Apellido2, Telefono1, Telefono2, Apodo, 
+			//Identificacion, Foto, Horario, TipoPago, Puesto, Status
+			if (empleado.EmpleadoId == 0) {
+				var empleadoId = _cn.Query<int> (
+					@"INSERT INTO CCSoftDB.dbo.Empleado(
 						EmpresaId, 
 						Nombre, 
 						Apellido1, 
 						Apellido2, 
 						Telefono1, 
 						Telefono2, 
-						Telefono3, 
-						Correo,
-						Cumpleaños,
-						RecomendadoPorClienteId,
-						Status,
-						CreditoDisponible
+						Apodo, 
+						Identificacion, 
+						Foto, 
+						Horario, 
+						TipoPago, 
+						Puesto, 
+						Status
 	                )
 	                VALUES(
 						@EmpresaId, 
@@ -125,40 +130,41 @@ namespace LibraryBapp
 						@Apellido2, 
 						@Telefono1, 
 						@Telefono2, 
-						@Telefono3, 
-						@Correo,
-						@Cumpleaños,
-						@RecomendadoPorClienteId,
-						@Status,
-						@CreditoDisponible
+						@Apodo, 
+						@Identificacion, 
+						@Foto, 
+						@Horario, 
+						@TipoPago, 
+						@Puesto, 
+						@Status
 	                )
 	                SELECT CAST(SCOPE_IDENTITY() as int)",
-					item
+					empleado
 				).SingleOrDefault ();
-				item.ClienteId = id;
+				empleado.EmpleadoId = empleadoId;
 			} 
 			else {
 				_cn.Execute(
-					@"UPDATE CCSoftDB.dbo.Cliente
-                    SET  
-						EmpresaId = @EmpresaId, 
+					@"UPDATE CCSoftDB.dbo.Empleado
+                    SET EmpresaId = @EmpresaId, 
 						Nombre = @Nombre, 
 						Apellido1 = @Apellido1, 
 						Apellido2 = @Apellido2, 
 						Telefono1 = @Telefono1, 
 						Telefono2 = @Telefono2, 
-						Telefono3 = @Telefono3, 
-						Correo = @Correo,
-						Cumpleaños = @Cumpleaños,
-						RecomendadoPorClienteId = @RecomendadoPorClienteId,
-						Status = @Status,
-						CreditoDisponible = @CreditoDisponible
-                    WHERE ClienteId = @ClienteId",
-					item);
+						Apodo = @Apodo, 
+						Identificacion = @Identificacion, 
+						Foto = @Foto, 
+						Horario = @Horario, 
+						TipoPago = @TipoPago, 
+						Puesto = @Puesto, 
+						Status = @Status
+                    WHERE EmpleadoId = @EmpleadoId",
+					empleado);
 			}
 
-			return item;
-		}
+			return empleado;
+		}*/
 	}
 }
 

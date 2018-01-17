@@ -1,13 +1,28 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Index</title>
-</head>
-<body>
-</body>
-</html>
 
+<script src="~/Scripts/Admin/facturacion.js"></script>
+<div id="wrapper">
+  <div class="content">
+	<div class="row">
+	  <div class="col-md-12">
+			<div class="panel_s">
+			  <div class="panel-body _buttons">
+			  	<h2 class="pull-left">@ViewData["Message"]</h2>
+				<a href="/Facturacion/Item" id="btn_add_factura_manuals" class=" pull-right" ><i class="fa fa-plus"></i></a>
+			  	<a href="/Admin/Default/" class="pull-right"><i class="fa fa-remove"></i></a>
+			  </div>
+			</div>
+			<div class="panel_s">
+				<div class="panel-body">
+					<div class="clearfix"></div>
+					<div id="grid_factura_manuals" ></div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>

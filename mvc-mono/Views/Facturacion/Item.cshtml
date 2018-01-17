@@ -1,0 +1,101 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+<script src="~/Scripts/Admin/facturacion.js"></script>
+
+<div id="wrapper">
+  <div class="content">
+	<div class="row">
+	  <div class="col-md-12">
+			<div class="panel_s">
+			  <div class="panel-body">
+			  	<h2 class="pull-left">@ViewData["Message"]</h2>
+				<i class="fa fa-remove pull-right"></i>
+			  </div>
+			</div>
+
+			<div class="panel_s">
+				<div class="panel-body">
+					<div id="window_factura_manuals" style="">
+						<form>
+							<input type="hidden" name="FacturaManualId" value="0"/>
+							<div class="panel_s _container" style="width:100%; min-height:100px;">
+								<div class="row">
+									<div class="col-md-4">
+										<label for="Consecutivo" class="control-label">Consecutivo</label>
+										<input type="text" name="Consecutivo" class="form-control" required validationMessage="* Ingresa el Consecutivo" >
+									</div>
+									<div class="col-md-4">
+										<label for="Observaciones" class="control-label">Observaciones</label>
+										<input type="text" name="Observaciones" class="form-control" required validationMessage="* Ingresa las Observaciones" >
+									</div>
+									<div class="col-md-4">
+										<label for="EstadoFactura" class="control-label">EstadoFactura</label>
+										<input type="text" name="EstadoFactura" class="form-control" required validationMessage="* Ingresa el Estado de la Factura" >
+									</div>
+								</div>	
+								<div class="row">
+									<div class="col-md-4">
+										<label for="Moneda" class="control-label">Moneda</label>
+										<input type="text" name="Moneda" class="form-control" required validationMessage="* Ingresa la Moneda" >
+									</div>
+									<div class="col-md-4">
+										<label for="MontoTotal" class="control-label">MontoTotal</label>
+										<input type="text" name="MontoTotal" class="form-control" required validationMessage="* Ingresa el Monto Total" >
+									</div>
+									<div class="col-md-4">
+										<label for="MontoCobrado" class="control-label">MontoCobrado</label>
+										<input type="text" name="MontoCobrado" class="form-control" required validationMessage="* Ingresa el Monto Cobrado" >
+									</div>
+								</div>	
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<label for="MontoDescuento" class="control-label">MontoDescuento</label>
+									<input type="text" name="MontoDescuento" class="form-control" required validationMessage="* Ingresa el Monto Descuento" >
+								</div>
+								<div class="col-md-4">
+									<label for="MontoBruto" class="control-label">MontoBruto</label>
+									<input type="text" name="MontoBruto" class="form-control" required validationMessage="* Ingresa el Monto Bruto" >
+								</div>
+								<div class="col-md-4">
+									<label for="TipoPago" class="control-label">TipoPago</label>
+									<input type="text" name="TipoPago" class="form-control" required validationMessage="* Ingresa el Tipo de Pago" >
+								</div>
+							</div>	
+							<div class="row">
+								<div class="col-md-4">
+									<label for="Moneda" class="control-label">Moneda</label>
+									<input type="text" name="Moneda" class="form-control" required validationMessage="* Ingresa la Moneda" >
+								</div>
+								<div class="col-md-4">
+									<label for="ArchivoXMLId" class="control-label">ArchivoXMLId</label>
+									<input type="text" name="ArchivoXMLId" class="form-control" required validationMessage="* Ingresa el ArchivoXMLId" >
+								</div>
+								<div class="col-md-4">
+									<label for="ClienteId" class="control-label">ClienteId</label>
+									<input type="text" name="ClienteId" class="form-control" required validationMessage="* Ingresa el ClienteId" >
+								</div>
+							</div>	
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-info">Enviar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel_s">
+				<div class="panel-body">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+
+
+

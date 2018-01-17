@@ -114,7 +114,7 @@ namespace LibraryBapp
 		}
 
 
-
+		/*
 		public List<Categoria> ObtenerCategorias(int empresaId)
 		{
 			var strQuery =
@@ -185,7 +185,7 @@ namespace LibraryBapp
 			}
 
 			return categoria;
-		}
+		}*/
 
 
 

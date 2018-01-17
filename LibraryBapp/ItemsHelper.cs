@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace LibraryBapp
 {
-	public class ServiciosHelper : IDisposable
+	public class ItemsHelper : IDisposable
 	{
 		IDbConnection _cn;
 		public static IDbConnection GetConnection()
@@ -20,11 +20,11 @@ namespace LibraryBapp
 				@"Data Source=PERSONAL\SQLEXPRESS;Initial Catalog=cash_app;User ID=sa;Password=0nly-n0is3; Persist Security Info=True;";
 
 			var connection_str_1 =
-				@"data source=www.ccmvservices.com, 36754;initial catalog=CCSoftDB;persist security info=True;user id=CCSoft;password=abcd.1234;";
+				@"data source=www.ccmvservices.com, 36754;initial catalog=FactElect;persist security info=True;user id=CCSoft;password=abcd.1234;";
 			return new SqlConnection( connection_str_1);
 		}
 
-		public ServiciosHelper(IDbConnection cn)
+		public ItemsHelper(IDbConnection cn)
 		{
 			_cn = cn;
 		}
@@ -43,48 +43,44 @@ namespace LibraryBapp
 
 
 
-		public List<Servicio> ObtenerServicios(int id)
+		public List<Item> ObtenerItems(int id)
 		{
 			var strQuery =
 				@"SELECT 
-					ServicioId, 
+					ItemId, 
 					EmpresaId, 
-					FamiliaId, 
-					DisponibleEnCitas, 
-					Precio, 
-					TiempoDuracionMin, 
-					Impuesto, 
-					Costo, 
-					Detalle
-				FROM CCSoftDB.dbo.Servicio
+					TipoItem, 
+					Descripcion, 
+					MontoItem, 
+					Moneda, 
+					Activo
+				FROM FactElect.dbo.Item
 				WHERE EmpresaId = @id
                 ";
 			var list = 
-				_cn.Query<Servicio>(
+				_cn.Query<Item>(
 					strQuery,
 					new { id }
 				).ToList();
 			return list;
 		}
 
-		public Servicio ObtenerServicio(int id)
+		public Item ObtenerItem(int id)
 		{
 			var strQuery =
 				@"SELECT 
-					ServicioId, 
+					ItemId, 
 					EmpresaId, 
-					FamiliaId, 
-					DisponibleEnCitas, 
-					Precio, 
-					TiempoDuracionMin, 
-					Impuesto, 
-					Costo, 
-					Detalle
-				FROM CCSoftDB.dbo.Servicio
-				WHERE ServicioId = @id
+					TipoItem, 
+					Descripcion, 
+					MontoItem, 
+					Moneda, 
+					Activo
+				FROM FactElect.dbo.Item
+				WHERE ItemId = @id
                 ";
 
-			var item = _cn.Query<Servicio>(
+			var item = _cn.Query<Item>(
 				strQuery,
 				new { id }
 			).SingleOrDefault();
@@ -92,48 +88,42 @@ namespace LibraryBapp
 			return item;
 		}
 
-		public Servicio GuardarServicio(Servicio item)
+		public Item GuardarItem(Item item)
 		{
-			if (item.ServicioId == 0) {
+			if (item.ItemId == 0) {
 				var id = _cn.Query<int> (
-					@"INSERT INTO CCSoftDB.dbo.Servicio(
+					@"INSERT INTO FactElect.dbo.Item(
 						EmpresaId, 
-						FamiliaId, 
-						DisponibleEnCitas, 
-						Precio, 
-						TiempoDuracionMin, 
-						Impuesto, 
-						Costo, 
-						Detalle
+						TipoItem, 
+						Descripcion, 
+						MontoItem, 
+						Moneda, 
+						Activo
 	                )
 	                VALUES(
 						@EmpresaId, 
-						@FamiliaId, 
-						@DisponibleEnCitas, 
-						@Precio, 
-						@TiempoDuracionMin, 
-						@Impuesto, 
-						@Costo, 
-						@Detalle
+						@TipoItem, 
+						@Descripcion, 
+						@MontoItem, 
+						@Moneda, 
+						@Activo
 	                )
 	                SELECT CAST(SCOPE_IDENTITY() as int)",
 					item
 				).SingleOrDefault ();
-				item.ServicioId = id;
+				item.ItemId = id;
 			} 
 			else {
 				_cn.Execute(
-					@"UPDATE CCSoftDB.dbo.Servicio
-                    SET  
+					@"UPDATE FactElect.dbo.Item
+                    SET 
 						EmpresaId = @EmpresaId, 
-						FamiliaId = @FamiliaId, 
-						DisponibleEnCitas = @DisponibleEnCitas, 
-						Precio = @Precio, 
-						TiempoDuracionMin = @TiempoDuracionMin, 
-						Impuesto = @Impuesto, 
-						Costo = @Costo, 
-						Detalle = @Detalle
-                    WHERE ServicioId = @ServicioId",
+						TipoItem = @TipoItem, 
+						Descripcion = @Descripcion, 
+						MontoItem = @MontoItem, 
+						Moneda = @Moneda, 
+						Activo = @Activo
+                    WHERE ItemId = @ItemId",
 					item);
 			}
 
