@@ -459,13 +459,32 @@
 			}
 
 			function set_data_object_to_form(selector, data){
-				var inputs = $( "{0} input[name]".format(selector) );
+				//"{0} input[name]"
+				var inputs = $( "{0} [name]".format(selector) );
 				$.each(inputs, function(index, item){
 					item = $(item);
 					item.val( data[ item.attr("name") ] );
 				});
 			}
 
+			var tiposItem = [
+				{TipoItem : 1, Nombre: "Producto"},
+				{TipoItem : 2, Nombre: "Servicio"}
+			];
+
+			var tiposMoneda = [
+				{Id : 1, Nombre: "Sol"},
+				{Id : 2, Nombre: "Usd"}
+			];
+
+			var tiposPago = [
+				{Id : 1, Nombre: "Efectivo"},
+				{Id : 2, Nombre: "Tarjeta Crédito/Débito"}
+			];
+
+			function create_dropdown_data(selector, data){
+				
+			}
 
 $(document).ready(function () {
 

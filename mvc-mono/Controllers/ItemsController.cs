@@ -48,6 +48,7 @@ namespace WebApp.Controllers
 		public ActionResult GuardarItem(Item item)
 		{
 			item.EmpresaId = 2; //todo
+			item.Activo = true;
 			var dbHelper = new ItemsHelper(ItemsHelper.GetConnection());
 			var message = dbHelper.GuardarItem(item);
 

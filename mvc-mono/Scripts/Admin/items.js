@@ -10,19 +10,32 @@ $(document).ready(function(){
 			if($("#grid_{0}".format(item_str)).length == 0) return;
 			var grid;
 			var columns = [
-				{field: "TipoItem", title: "Tipo"},
+				{field: "TipoItem", title: "Tipo", template: "<span id='TipoItem'>#:TipoItem#</span>"},
 				{field: "Descripcion", title: "Descripción"},
-				{field: "MontoItem", title: "Monto"},
-				{field: "Moneda", title: "Moneda"},
-				{field: "Activo", title: "Activo"},
+				{field: "MontoItem", title: "Monto", format: "{0:c}"},
+				{field: "Moneda", title: "Moneda", template: "<span id='Moneda'>#:Moneda#</span>"},
+				//{field: "Activo", title: "Activo"},
 				{field:"ItemId", title:"Acciones", width:"100px", 
 				template: "<a  id='btn_ver' href='/Items/Item/#:ItemId#'><i _id='#:ItemId#' id='btn_editar' class='fa fa-pencil-square' title='Editar'></i></a>"}
 			];
 
 			function data_bound_items(e){
+				var get_tipo = function(id){
+					return $.grep(tiposItem, function(item){
+						return item.TipoItem == id;
+					})[0].Nombre;
+				}
+				var get_tipo_moneda = function(id){
+					return $.grep(tiposMoneda, function(item){
+						return item.Id == id;
+					})[0].Nombre;
+				}
+
 				$.each(e.sender.items(), function(index, item){
 					item = $(item);
 					//item.find("#btn_editar").on("click", edit_item);
+					item.find("#TipoItem").text( get_tipo(item.find("#TipoItem").text()) );
+					item.find("#Moneda").text( get_tipo_moneda(item.find("#Moneda").text()) );
 				});
 			}; 
 
@@ -68,12 +81,27 @@ $(document).ready(function(){
 				return false;
 			}
 
+			function load_catalogs(){
+				form.find("[name='TipoItem']").kendoDropDownList({
+	                dataTextField: "Nombre",
+	                dataValueField: "TipoItem",
+	                dataSource: tiposItem
+	            }).data("kendoDropDownList");
+
+	            form.find("[name='Moneda']").kendoDropDownList({
+	                dataTextField: "Nombre",
+	                dataValueField: "Id",
+	                dataSource: tiposMoneda
+	            }).data("kendoDropDownList");
+			}
+
 			if(get_id_from_url() != 0)
 				$.get('/Items/ObtenerItem/'+get_id_from_url(), function(response) {
 					edit_item({ currentTarget: $("<span></span>").attr("_id", get_id_from_url()) }, response);
 				}, 'json');
 			//window = create_window_controls(item_str, clear_controls);
-			validator = load_form_controls(item_str, register_item)
+			validator = load_form_controls(item_str, register_item);
+			load_catalogs();
 		}
 
 		//INIT

@@ -2,25 +2,21 @@
 
 $(document).ready(function(){
 	
-	function load_items_servicios(){
-		var item_str = "servicios";
+	function load_items_certificados(){
+		var item_str = "certificados";
 		var form = $("#window_{0} form".format(item_str));
 
 		function create_grid_items(){  
 			if($("#grid_{0}".format(item_str)).length == 0) return;
 			var grid;
-			//ServicioId, EmpresaId, FamiliaId, DisponibleEnCitas, Precio, TiempoDuracionMin, Impuesto,
-			//Costo, Detalle
+			//CertificadoId, EmpresaId, RutaCertificado, Registrado, Status, ClaveArchivo
 			var columns = [
-				{field: "FamiliaId", title: "Familia"},
-				{field: "DisponibleEnCitas", title: "Disponible En Citas"},
-				{field: "Precio", title: "Precio"},
-				{field: "TiempoDuracionMin", title: "Tiempo Duracion Min"},
-				{field: "Impuesto", title: "Impuesto"},
-				{field: "Costo", title: "Costo"},
-				//{field: "Detalle", title: "Detalle"},
-				{field:"ServicioId", title:"Acciones", width:"100px", 
-				template: "<a  id='btn_ver' href='/Servicios/Item/#:ServicioId#'><i _id='#:ServicioId#' id='btn_editar' class='fa fa-pencil-square' title='Editar'></i></a>"}
+				{field: "RutaCertificado", title: "RutaCertificado"},
+				{field: "Registrado", title: "Registrado"},
+				{field: "Status", title: "Status"},
+				{field: "ClaveArchivo", title: "ClaveArchivo"},
+				{field:"CertificadoId", title:"Acciones", width:"100px", 
+				template: "<a  id='btn_ver' href='/Certificados/Item/#:CertificadoId#'><i _id='#:CertificadoId#' id='btn_editar' class='fa fa-pencil-square' title='Editar'></i></a>"}
 			];
 
 			function data_bound_items(e){
@@ -31,7 +27,7 @@ $(document).ready(function(){
 			}; 
 
 			//INIT
-			$.get('/Servicios/ObtenerServicios/', function(response) {
+			$.get('/Certificados/ObtenerCertificados/', function(response) {
 				grid = create_grid(item_str, response, columns, data_bound_items);
 			}, 'json');
 		}
@@ -44,7 +40,7 @@ $(document).ready(function(){
 				console.log("entro a editar");
 				var sender = $(event.currentTarget);
 				var id = sender.attr("_id");
-				form.find("[name='ServicioId']").val(id);
+				form.find("[name='CertificadoId']").val(id);
 				
 				var item = sender.parent().parent();
 				//var data = $("#grid_"+item_str).data("kendoGrid").dataItem(item);
@@ -57,14 +53,14 @@ $(document).ready(function(){
 
 			function clear_controls(){
 				form.find("input[name]").val("");
-				form.find("[name='servicioId']").val("0");
+				form.find("[name='CertificadoId']").val("0");
 				//$( "form input[name]" ).val("");
 			}
 
 			function register_item(){
 				if(!validator.validate()) return false;
 
-				var url = '/Servicios/GuardarServicio';
+				var url = '/Certificados/GuardarCertificado';
 				var data = get_data_object_from_form("form");
 				var fn_compare_id = function(item, response){
 						return item.servicioId == response.servicioId;
@@ -74,7 +70,7 @@ $(document).ready(function(){
 			}
 
 			if(get_id_from_url() != 0)
-				$.get('/Servicios/ObtenerServicio/'+get_id_from_url(), function(response) {
+				$.get('/Certificados/ObtenerCertificado/'+get_id_from_url(), function(response) {
 					edit_item({ currentTarget: $("<span></span>").attr("_id", get_id_from_url()) }, response);
 				}, 'json');
 			//window = create_window_controls(item_str, clear_controls);
@@ -87,7 +83,7 @@ $(document).ready(function(){
 	}
 
 	//INIT MASTER
-	load_items_servicios();			
+	load_items_certificados();			
 });
 
 

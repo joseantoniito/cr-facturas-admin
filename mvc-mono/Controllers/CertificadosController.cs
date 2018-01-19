@@ -10,11 +10,11 @@ using Microsoft.Owin.Security.Cookies;
 namespace WebApp.Controllers
 {
 	[Authorize]
-	public class ClientesController : Controller
+	public class CertificadosController : Controller
 	{
 		public ActionResult Index()
 		{
-			ViewData["Message"] = "Clientes";
+			ViewData["Message"] = "Certificados";
 
 			return View ();
 		}
@@ -26,33 +26,34 @@ namespace WebApp.Controllers
 			return View();
 		}
 
-		/*
+
 		//REST
 		[HttpGet]
-		public JsonResult ObtenerClientes()
+		public JsonResult ObtenerCertificados()
 		{
-			var dbHelper = new ClientesHelper(ClientesHelper.GetConnection());
-			var items = dbHelper.ObtenerClientes(2);//todo: obtener correctamente el id
+			var dbHelper = new CertificadosHelper(CertificadosHelper.GetConnection());
+			var items = dbHelper.ObtenerCertificados(2);//todo: obtener correctamente el id
 			return Json(items, JsonRequestBehavior.AllowGet);
 		}
 
 		[HttpGet]
-		public JsonResult ObtenerCliente(int id)
+		public JsonResult ObtenerCertificado(int id)
 		{
-			var dbHelper = new ClientesHelper(ClientesHelper.GetConnection());
-			var item = dbHelper.ObtenerCliente(id);
+			var dbHelper = new CertificadosHelper(CertificadosHelper.GetConnection());
+			var item = dbHelper.ObtenerCertificado(id);
 			return Json(item, JsonRequestBehavior.AllowGet);
 		}
 
 		[HttpPost]
-		public ActionResult GuardarCliente(Cliente item)
+		public ActionResult GuardarCertificado(Certificado item)
 		{
-			var nombre = item.Nombre;
 			item.EmpresaId = 2; //todo
-			var dbHelper = new ClientesHelper(ClientesHelper.GetConnection());
-			var message = dbHelper.GuardarCliente(item);
+			item.Registrado = DateTime.Now;
+	
+			var dbHelper = new CertificadosHelper(CertificadosHelper.GetConnection());
+			var message = dbHelper.GuardarCertificado(item);
 
 			return Json(item);
-		}*/
+		}
 	}
 }

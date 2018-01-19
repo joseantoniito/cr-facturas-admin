@@ -172,9 +172,7 @@
     <Content Include="Views\Admin\Empresa.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Default.cshtml" />
-    <Content Include="Scripts\Admin\personal.js" />
     <Content Include="Scripts\Admin\clientes.js" />
-    <Content Include="Scripts\Admin\servicios.js" />
     <Content Include="Scripts\Admin\facturacion.js" />
     <Content Include="Views\Items\Index.cshtml" />
     <Content Include="Views\Items\Item.cshtml" />
@@ -185,6 +183,8 @@
     <Content Include="Scripts\Admin\items.js" />
     <Content Include="Views\Facturacion\Item.cshtml" />
     <Content Include="Views\Facturacion\Index.cshtml" />
+    <Content Include="Scripts\Admin\archivoxml.js" />
+    <Content Include="Scripts\Admin\certificados.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

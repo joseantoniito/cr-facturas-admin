@@ -137,7 +137,7 @@ namespace LibraryBapp
 						@MontoBruto, 
 						@TipoPago, 
 						@ArchivoXMLId, 
-						ClienteId
+						@ClienteId
 	                )
 	                SELECT CAST(SCOPE_IDENTITY() as int)",
 					item
@@ -189,7 +189,7 @@ namespace LibraryBapp
 					Codigo, 
 					ItemId
 				FROM FactElect.dbo.FacturaManualLinea
-				WHERE EmpresaId = @id
+				WHERE FacturaManualId = @id
                 ";
 			var list = 
 				_cn.Query<FacturaManualLinea>(
@@ -230,7 +230,15 @@ namespace LibraryBapp
 			if (FacturaManualLinea.FacturaManualLineaId == 0) {
 				var id = _cn.Query<int> (
 					@"INSERT INTO FactElect.dbo.FacturaManualLinea(
-						@
+						FacturaManualId, 
+						TipoItem, 
+						ObservacionAdicional, 
+						MontoLineaCobrado, 
+						PrecioUnitario, 
+						Cantidad,
+						MontoLineaCalculado, 
+						Codigo, 
+						ItemId
 	                )
 	                VALUES(
 						@FacturaManualId, 

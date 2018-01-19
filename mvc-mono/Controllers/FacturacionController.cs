@@ -50,6 +50,7 @@ namespace WebApp.Controllers
 			item.EmpresaId = 2; //todo
 			item.UsuarioId = 1;
 			item.Registrado = DateTime.Now;
+			item.EstadoFactura = 1; //todo: checar status
 			var dbHelper = new FacturacionHelper(FacturacionHelper.GetConnection());
 			var message = dbHelper.GuardarFacturaManual(item);
 
@@ -58,10 +59,10 @@ namespace WebApp.Controllers
 
 
 		[HttpGet]
-		public JsonResult ObtenerFacturaManualLineas()
+		public JsonResult ObtenerFacturaManualLineas(int id)
 		{
 			var dbHelper = new FacturacionHelper(FacturacionHelper.GetConnection());
-			var items = dbHelper.ObtenerFacturaManualLineas(2);//todo: obtener correctamente el id
+			var items = dbHelper.ObtenerFacturaManualLineas(id);//todo: obtener correctamente el id
 			return Json(items, JsonRequestBehavior.AllowGet);
 		}
 

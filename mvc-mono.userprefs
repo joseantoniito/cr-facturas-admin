@@ -1,11 +1,13 @@
 ﻿<Properties StartupItem="mvc-mono/mvc-mono.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="chromium-browser" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="mvc-mono/Content/Site.css">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../../media/jose/TOSHIBA EXT/working/Freelancer/CR - Facturacion/Documento sin título 1">
     <Files>
-      <File FileName="../../../../../media/jose/TOSHIBA EXT/working/Freelancer/Admin Salon - Costa Rica/NOTAS SISTEMA SALON COSTA RICA.txt" Line="1" Column="1" />
-      <File FileName="mvc-mono/Scripts/Admin/productos.js" Line="1" Column="1" />
-      <File FileName="mvc-mono/Content/Site.css" Line="16" Column="2" />
-      <File FileName="mvc-mono/Views/Admin/Default.cshtml" Line="1" Column="1" />
+      <File FileName="../../../../../media/jose/TOSHIBA EXT/working/Freelancer/CR - Facturacion/Documento sin título 1" Line="53" Column="22" />
+      <File FileName="mvc-mono/Scripts/site.js" Line="484" Column="50" />
+      <File FileName="mvc-mono/Scripts/Admin/items.js" Line="97" Column="1" />
+      <File FileName="mvc-mono/Scripts/Admin/facturacion.js" Line="45" Column="7" />
+      <File FileName="mvc-mono/Views/Facturacion/Item.cshtml" Line="40" Column="11" />
+      <File FileName="mvc-mono/Controllers/FacturacionController.cs" Line="45" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

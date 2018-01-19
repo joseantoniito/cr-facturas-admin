@@ -21,63 +21,60 @@
 					<div id="window_factura_manuals" style="">
 						<form>
 							<input type="hidden" name="FacturaManualId" value="0"/>
-							<div class="panel_s _container" style="width:100%; min-height:100px;">
-								<div class="row">
-									<div class="col-md-4">
-										<label for="Consecutivo" class="control-label">Consecutivo</label>
-										<input type="text" name="Consecutivo" class="form-control" required validationMessage="* Ingresa el Consecutivo" >
-									</div>
-									<div class="col-md-4">
-										<label for="Observaciones" class="control-label">Observaciones</label>
-										<input type="text" name="Observaciones" class="form-control" required validationMessage="* Ingresa las Observaciones" >
-									</div>
-									<div class="col-md-4">
-										<label for="EstadoFactura" class="control-label">EstadoFactura</label>
-										<input type="text" name="EstadoFactura" class="form-control" required validationMessage="* Ingresa el Estado de la Factura" >
-									</div>
-								</div>	
-								<div class="row">
-									<div class="col-md-4">
-										<label for="Moneda" class="control-label">Moneda</label>
-										<input type="text" name="Moneda" class="form-control" required validationMessage="* Ingresa la Moneda" >
-									</div>
-									<div class="col-md-4">
-										<label for="MontoTotal" class="control-label">MontoTotal</label>
-										<input type="text" name="MontoTotal" class="form-control" required validationMessage="* Ingresa el Monto Total" >
-									</div>
-									<div class="col-md-4">
-										<label for="MontoCobrado" class="control-label">MontoCobrado</label>
-										<input type="text" name="MontoCobrado" class="form-control" required validationMessage="* Ingresa el Monto Cobrado" >
-									</div>
-								</div>	
-							</div>
+
 							<div class="row">
 								<div class="col-md-4">
-									<label for="MontoDescuento" class="control-label">MontoDescuento</label>
-									<input type="text" name="MontoDescuento" class="form-control" required validationMessage="* Ingresa el Monto Descuento" >
-								</div>
-								<div class="col-md-4">
-									<label for="MontoBruto" class="control-label">MontoBruto</label>
-									<input type="text" name="MontoBruto" class="form-control" required validationMessage="* Ingresa el Monto Bruto" >
+									<label for="Consecutivo" class="control-label">Consecutivo</label>
+									<input type="text" name="Consecutivo" class="form-control" required validationMessage="* Ingresa el Consecutivo" >
 								</div>
 								<div class="col-md-4">
 									<label for="TipoPago" class="control-label">TipoPago</label>
 									<input type="text" name="TipoPago" class="form-control" required validationMessage="* Ingresa el Tipo de Pago" >
 								</div>
-							</div>	
-							<div class="row">
 								<div class="col-md-4">
 									<label for="Moneda" class="control-label">Moneda</label>
 									<input type="text" name="Moneda" class="form-control" required validationMessage="* Ingresa la Moneda" >
 								</div>
+							</div>	
+							<div class="row padTop20">
 								<div class="col-md-4">
+									<label for="MontoBruto" class="control-label">Monto Bruto</label>
+									<input type="text" name="MontoBruto" class="form-control" required validationMessage="* Ingresa el Monto Bruto" >
+								</div>
+								<div class="col-md-4">
+									<label for="MontoDescuento" class="control-label">Descuento</label>
+									<input type="text" name="MontoDescuento" class="form-control" required validationMessage="* Ingresa el Monto Descuento" >
+								</div>
+								<div class="col-md-4">
+									<label for="MontoTotal" class="control-label">Monto Total</label>
+									<input type="text" disabled name="MontoTotal" class="form-control" required validationMessage="* Ingresa el Monto Total" >
+								</div>
+							</div>	
+							<div class="row padTop20">
+								<div class="col-md-8">
+									<label for="Observaciones" class="control-label">Observaciones</label>
+									<textarea rows="6" name="Observaciones" class="form-control" required validationMessage="* Ingresa las Observaciones" ></textarea>
+								</div>
+								<div class="col-md-4">
+									<label for="MontoCobrado" class="control-label">Monto Cobrado</label>
+									<input type="text" name="MontoCobrado" class="form-control" required validationMessage="* Ingresa el Monto Cobrado" >
+								</div>
+							</div>	
+							<div class="row">
+								<div class="col-md-4">
+									</div>
+
+								<!--<div class="col-md-4">
 									<label for="ArchivoXMLId" class="control-label">ArchivoXMLId</label>
 									<input type="text" name="ArchivoXMLId" class="form-control" required validationMessage="* Ingresa el ArchivoXMLId" >
 								</div>
 								<div class="col-md-4">
 									<label for="ClienteId" class="control-label">ClienteId</label>
 									<input type="text" name="ClienteId" class="form-control" required validationMessage="* Ingresa el ClienteId" >
-								</div>
+								</div>-->
+								<!--<label for="EstadoFactura" class="control-label">EstadoFactura</label>
+									<input type="text" name="EstadoFactura" class="form-control" required validationMessage="* Ingresa el Estado de la Factura" >
+								-->
 							</div>	
 							<div class="modal-footer">
 								<button type="submit" class="btn btn-info">Enviar</button>
@@ -89,7 +86,12 @@
 
 			<div class="panel_s">
 				<div class="panel-body">
-					
+					<div class="row">
+						<i id="btn_add_factura_manual_lineas" class="fa fa-plus pull-right"></i>
+					</div>
+					<div class="row">
+						<div id="grid_factura_manual_lineas" ></div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -99,3 +101,50 @@
 
 
 
+<div id="window_factura_manual_lineas" style="display:none;">
+	<form>
+		<input type="hidden" name="FacturaManualLineaId" value="0"/>
+		<input type="hidden" name="FacturaManualId" value="0"/>
+		<div class="row">
+			<div class="col-md-4">
+				<label for="TipoItem" class="control-label">Tipo de Item</label>
+				<input type="text" name="TipoItem" class="form-control" required validationMessage="* Ingresa el Tipo de Item" >
+			</div>
+			<div class="col-md-4">
+				<label for="ItemId" class="control-label">Item</label>
+				<input type="text" name="ItemId" class="form-control" required validationMessage="* Ingresa el Item" >
+			</div>
+			<div class="col-md-4">
+				<label for="Codigo" class="control-label">Código</label>
+				<input type="text" name="Codigo" class="form-control" required validationMessage="* Ingresa el Código" >
+			</div>
+		</div>	
+		<div class="row padTop20">
+			<div class="col-md-4">
+				<label for="PrecioUnitario" class="control-label">Precio Unitario</label>
+				<input type="text" name="PrecioUnitario" class="form-control" required validationMessage="* Ingresa el Precio Unitario" >
+			</div>
+			<div class="col-md-4">
+				<label for="Cantidad" class="control-label">Cantidad</label>
+				<input type="text" name="Cantidad" class="form-control" required validationMessage="* Ingresa la Cantidad" >
+			</div>
+			<div class="col-md-4">
+				<label for="MontoLineaCalculado" class="control-label">Monto Linea Calculado</label>
+				<input type="text" disabled name="MontoLineaCalculado" class="form-control" required validationMessage="* Ingresa el Monto Linea Calculado" >
+			</div>
+		</div>
+		<div class="row padTop20">
+			<div class="col-md-8">
+				<label for="ObservacionAdicional" class="control-label">Observación Adicional</label>
+				<textarea rows="6" name="ObservacionAdicional" class="form-control" required validationMessage="* Ingresa la Observación Adicional" ></textarea>
+			</div>
+			<div class="col-md-4">
+				<label for="MontoLineaCobrado" class="control-label">Monto Linea Cobrado</label>
+				<input type="text" name="MontoLineaCobrado" class="form-control" required validationMessage="* Ingresa el Monto Linea Cobrado" >
+			</div>
+		</div>	
+		<div class="modal-footer">
+			<button type="submit" class="btn btn-info">Enviar</button>
+		</div>
+	</form>
+</div>
