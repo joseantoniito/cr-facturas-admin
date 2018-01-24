@@ -31,8 +31,11 @@ namespace WebApp.Controllers
 		[HttpGet]
 		public JsonResult ObtenerItems()
 		{
+			var id_e = Convert.ToInt32(HttpContext.GetOwinContext().Authentication.User.Claims
+				.FirstOrDefault(x => x.Type == ClaimTypes.Sid).Value);
+			
 			var dbHelper = new ItemsHelper(ItemsHelper.GetConnection());
-			var items = dbHelper.ObtenerItems(2);//todo: obtener correctamente el id
+			var items = dbHelper.ObtenerItems(id_e);//todo: obtener correctamente el id
 			return Json(items, JsonRequestBehavior.AllowGet);
 		}
 

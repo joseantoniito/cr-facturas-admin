@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<script src="~/Scripts/Admin/archivos.js"></script>
+<div id="wrapper">
+  <div class="content">
+	<div class="row">
+	  <div class="col-md-12">
+			<div class="panel_s">
+			  <div class="panel-body">
+			  	<h2 class="pull-left">@ViewData["Message"]</h2>
+				<i class="fa fa-remove pull-right"></i>
+			  </div>
+			</div>
+
+			<div class="panel_s">
+				<div class="panel-body">
+
+					<div id="window_archivos" style="">
+						<form>
+							<input type="hidden" name="ArchivoId" value="0"/>
+							<div class="panel_s container" style="width:100%; min-height:100px;">
+								<div class="row">
+									<div class="col-md-6">
+										<label for="Ruta" class="control-label">Ruta</label>
+										<input type="text" name="Ruta" class="form-control" required validationMessage="* Ingresa el Ruta" >
+									</div>
+									<div class="col-md-6">
+										<label for="StorageId" class="control-label">Storage</label>
+										<input type="text" name="StorageId" class="form-control" required validationMessage="* Ingresa el Storage" >
+									</div>
+								</div>	
+								<div class="row padTop20">
+									<div class="col-md-6">
+										<label for="Hash" class="control-label">Hash</label>
+										<input type="text" name="Hash" class="form-control" required validationMessage="* Ingresa el Hash" >
+				</div>
+				<div class="col-md-6">
+					<label for="LlaveHacienda" class="control-label">Llave Hacienda</label>
+					<input type="text" name="LlaveHacienda" class="form-control" required validationMessage="* Ingresa la Llave Hacienda" >
+				</div>
+			</div>
+
+			<div class="row padTop20">
+				<div class="col-md-6">
+					<label for="TipoArchivo" class="control-label">Tipo Archivo</label>
+					<input type="text" name="TipoArchivo" class="form-control" required validationMessage="* Ingresa el Tipo Archivo" >
+				</div>
+				<div class="col-md-6">
+					<label for="CertificadoId" class="control-label">Certificado</label>
+					<input type="text" name="CertificadoId" class="form-control" required validationMessage="* Ingresa el Certificado" >
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="submit" class="btn btn-info">Enviar</button>
+		</div>
+	</form>
+</div>
+
+					
+				</div>
+			</div>
+
+			<div class="panel_s">
+				<div class="panel-body">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+
+
+

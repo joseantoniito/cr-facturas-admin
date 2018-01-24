@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace LibraryBapp
 {
-	public class EmpleadosHelper : IDisposable
+	public class ArchivoXmlHelper : IDisposable
 	{
 		IDbConnection _cn;
 		public static IDbConnection GetConnection()
@@ -20,11 +20,11 @@ namespace LibraryBapp
 				@"Data Source=PERSONAL\SQLEXPRESS;Initial Catalog=cash_app;User ID=sa;Password=0nly-n0is3; Persist Security Info=True;";
 
 			var connection_str_1 =
-				@"data source=www.ccmvservices.com, 36754;initial catalog=CCSoftDB;persist security info=True;user id=CCSoft;password=abcd.1234;";
+				@"data source=www.ccmvservices.com, 36754;initial catalog=FactElect;persist security info=True;user id=CCSoft;password=abcd.1234;";
 			return new SqlConnection( connection_str_1);
 		}
 
-		public EmpleadosHelper(IDbConnection cn)
+		public ArchivoXmlHelper(IDbConnection cn)
 		{
 			_cn = cn;
 		}
@@ -42,59 +42,57 @@ namespace LibraryBapp
 		}
 			
 
-		/*
-		public List<Empleado> ObtenerEmpleados(int id)
+
+		public List<Archivo> ObtenerArchivos(int id)
 		{
+			//ArchivoId, EmpresaId, Ruta, StorageId, Registrado, EstadoArchivo, Hash, LlaveHacienda, 
+			//TipoArchivo, UsuarioId, CertificadoId, ReceptorId
 			var strQuery =
 				@"SELECT 
-					EmpleadoId, 
+					ArchivoId, 
 					EmpresaId, 
-					Nombre, 
-					Apellido1, 
-					Apellido2, 
-					Telefono1, 
-					Telefono2, 
-					Apodo, 
-					Identificacion, 
-					Foto, 
-					Horario, 
-					TipoPago, 
-					Puesto, 
-					Status
-				FROM CCSoftDB.dbo.Empleado
+					Ruta, 
+					StorageId, 
+					Registrado, 
+					EstadoArchivo, 
+					Hash, 
+					LlaveHacienda, 
+					TipoArchivo, 
+					UsuarioId, 
+					CertificadoId, 
+					ReceptorId
+				FROM FactElect.dbo.Archivo
 				WHERE EmpresaId = @id
                 ";
 			var list = 
-				_cn.Query<Empleado>(
+				_cn.Query<Archivo>(
 					strQuery,
 					new { id }
 				).ToList();
 			return list;
 		}
 
-		public Empleado ObtenerEmpleado(int id)
+		public Archivo ObtenerArchivo(int id)
 		{
 			var strQuery =
 				@"SELECT 
-					EmpleadoId, 
+					ArchivoId, 
 					EmpresaId, 
-					Nombre, 
-					Apellido1, 
-					Apellido2, 
-					Telefono1, 
-					Telefono2, 
-					Apodo, 
-					Identificacion, 
-					Foto, 
-					Horario, 
-					TipoPago, 
-					Puesto, 
-					Status
-				FROM CCSoftDB.dbo.Empleado
-				WHERE EmpleadoId = @id
+					Ruta, 
+					StorageId, 
+					Registrado, 
+					EstadoArchivo, 
+					Hash, 
+					LlaveHacienda, 
+					TipoArchivo, 
+					UsuarioId, 
+					CertificadoId, 
+					ReceptorId
+				FROM FactElect.dbo.Archivo
+				WHERE ArchivoId = @id
                 ";
 
-			var item = _cn.Query<Empleado>(
+			var item = _cn.Query<Archivo>(
 				strQuery,
 				new { id }
 			).SingleOrDefault();
@@ -102,69 +100,64 @@ namespace LibraryBapp
 			return item;
 		}
 
-		public Empleado GuardarEmpleado(Empleado empleado)
+		public Archivo GuardarArchivo(Archivo archivo)
 		{
-			//EmpleadoId, EmpresaId, Nombre, Apellido1, Apellido2, Telefono1, Telefono2, Apodo, 
-			//Identificacion, Foto, Horario, TipoPago, Puesto, Status
-			if (empleado.EmpleadoId == 0) {
-				var empleadoId = _cn.Query<int> (
-					@"INSERT INTO CCSoftDB.dbo.Empleado(
+
+			if (archivo.ArchivoId == 0) {
+				var archivoId = _cn.Query<int> (
+					@"INSERT INTO FactElect.dbo.Archivo(
 						EmpresaId, 
-						Nombre, 
-						Apellido1, 
-						Apellido2, 
-						Telefono1, 
-						Telefono2, 
-						Apodo, 
-						Identificacion, 
-						Foto, 
-						Horario, 
-						TipoPago, 
-						Puesto, 
-						Status
+						Ruta, 
+						StorageId, 
+						Registrado, 
+						EstadoArchivo, 
+						Hash, 
+						LlaveHacienda, 
+						TipoArchivo, 
+						UsuarioId, 
+						CertificadoId, 
+						ReceptorId
 	                )
 	                VALUES(
 						@EmpresaId, 
-						@Nombre, 
-						@Apellido1, 
-						@Apellido2, 
-						@Telefono1, 
-						@Telefono2, 
-						@Apodo, 
-						@Identificacion, 
-						@Foto, 
-						@Horario, 
-						@TipoPago, 
-						@Puesto, 
-						@Status
+						@Ruta, 
+						@StorageId, 
+						@Registrado, 
+						@EstadoArchivo, 
+						@Hash, 
+						@LlaveHacienda, 
+						@TipoArchivo, 
+						@UsuarioId, 
+						@CertificadoId, 
+						@ReceptorId
 	                )
 	                SELECT CAST(SCOPE_IDENTITY() as int)",
-					empleado
+					archivo
 				).SingleOrDefault ();
-				empleado.EmpleadoId = empleadoId;
+				archivo.ArchivoId = archivoId;
 			} 
 			else {
 				_cn.Execute(
-					@"UPDATE CCSoftDB.dbo.Empleado
-                    SET EmpresaId = @EmpresaId, 
-						Nombre = @Nombre, 
-						Apellido1 = @Apellido1, 
-						Apellido2 = @Apellido2, 
-						Telefono1 = @Telefono1, 
-						Telefono2 = @Telefono2, 
-						Apodo = @Apodo, 
-						Identificacion = @Identificacion, 
-						Foto = @Foto, 
-						Horario = @Horario, 
-						TipoPago = @TipoPago, 
-						Puesto = @Puesto, 
-						Status = @Status
-                    WHERE EmpleadoId = @EmpleadoId",
-					empleado);
+					@"UPDATE FactElect.dbo.Archivo
+                    SET 
+						EmpresaId = @EmpresaId, 
+						Ruta = @Ruta, 
+						StorageId = @StorageId, 
+						Registrado = @Registrado, 
+						EstadoArchivo = @EstadoArchivo, 
+						Hash = @Hash, 
+						LlaveHacienda = @LlaveHacienda, 
+						TipoArchivo = @TipoArchivo, 
+						UsuarioId = @UsuarioId, 
+						CertificadoId = @CertificadoId, 
+						ReceptorId = @ReceptorId
+                    WHERE ArchivoId = @ArchivoId",
+					archivo);
 			}
 
-			return empleado;
-		}*/
+			return archivo;
+		}
+
 	}
 }
 

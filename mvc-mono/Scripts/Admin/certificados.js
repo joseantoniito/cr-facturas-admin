@@ -69,12 +69,59 @@ $(document).ready(function(){
 				return false;
 			}
 
+			function create_form_controls(){
+				var files_upload = [];
+				$("#upload_certificado").kendoUpload({
+		            async: {
+		                saveUrl: "/Admin/Save",
+		                removeUrl: "/Admin/Remove",
+		                autoUpload: true
+		            },
+		            files: files_upload,
+		            validation: {
+		                allowedExtensions: [".jpg", ".png", "pdf", "xls", "xlsx", "doc", "docx"],
+		            },
+		            success: function(e){
+		                
+		                if(e.operation == "upload"){
+		                	console.log("save", e);
+		                	$("[name='RutaCertificado']").val(e.files[0].name);
+		                    /*var id_media_item = e.response.id;
+		                    if(id_media_item){
+		                        var nombre_logotipo = e.files[0].name;
+		                        $("[name='logotipo']").val(nombre_logotipo);
+		                        add_development_logo(id_media_item, nombre_logotipo);
+		                    }*/
+		                }
+		                else if(e.operation == "remove"){
+		                	console.log("error", e);
+		                	$("[name='RutaCertificado']").val("");
+		                    /*var id_media_item = e.files[0].id;
+		                    $("[name='logotipo']").val("");
+		                    delete_development_logo(id_media_item);*/
+		                }
+		            },
+		            error: function(e){
+		                console.log("error", e);
+		            },
+		            select: function(e){
+		                console.log("select", e);
+		                /*if(this.getFiles().length > 0){
+		                    //alert("Solo puedes cargar una imágen.");
+		                    //e.preventDefault();
+		                    this.removeAllFiles();
+		                }*/
+		            }
+		        }).data("kendoUpload");
+			}
+
 			if(get_id_from_url() != 0)
 				$.get('/Certificados/ObtenerCertificado/'+get_id_from_url(), function(response) {
 					edit_item({ currentTarget: $("<span></span>").attr("_id", get_id_from_url()) }, response);
 				}, 'json');
 			//window = create_window_controls(item_str, clear_controls);
-			validator = load_form_controls(item_str, register_item)
+			validator = load_form_controls(item_str, register_item);
+			create_form_controls();
 		}
 
 		//INIT

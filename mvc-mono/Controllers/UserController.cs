@@ -138,7 +138,8 @@ namespace WebApp.Controllers
 			public ActionResult Login(EmpresaUsuario item)
 			{
 				var dbHelper = new DataBaseHelper(DataBaseHelper.GetConnection());
-				var id_user = 1;//dbHelper.ValidateLogin(item);
+				var validate_response = dbHelper.ValidateLogin(item);
+				var id_user = validate_response.EmpresaUsuarioId;
 				var user_valid = id_user != 0;
 				//return Json(false);
 				if (user_valid)
@@ -146,7 +147,8 @@ namespace WebApp.Controllers
 					var claims = new List<Claim>
 					{
 						new Claim(ClaimTypes.Name, item.Login),
-						new Claim(ClaimTypes.UserData, id_user.ToString())
+						new Claim(ClaimTypes.UserData, id_user.ToString()),
+						new Claim(ClaimTypes.Sid, validate_response.EmpresaId.ToString())
 					};
 
 					var userIdentity = new ClaimsIdentity(claims, "CookieAuthentication");

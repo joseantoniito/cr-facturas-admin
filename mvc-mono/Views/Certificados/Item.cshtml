@@ -25,7 +25,8 @@
 								<div class="row">
 									<div class="col-md-4">
 										<label for="RutaCertificado" class="control-label">Ruta del Certificado</label>
-										<input type="text" name="RutaCertificado" class="form-control" required validationMessage="* Ingresa la Ruta del Certificado" >
+										<input id="upload_certificado" type="file" name="files" class="form-control" >
+										<input type="hidden" name="RutaCertificado" required validationMessage="* Ingresa la Ruta del Certificado" />
 									</div>
 									<div class="col-md-4">
 										<label for="Status" class="control-label">Status</label>

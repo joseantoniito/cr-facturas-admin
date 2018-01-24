@@ -22,13 +22,12 @@ namespace LibraryBapp
         IDbConnection _cn;
         public static IDbConnection GetConnection()
         {
-            //var connection_str = ConfigurationManager.ConnectionStrings["CN"].ConnectionString;
-            var connection_str = 
-@"Data Source=PERSONAL\SQLEXPRESS;Initial Catalog=cash_app;User ID=sa;Password=0nly-n0is3; Persist Security Info=True;";
+			var connection_str = 
+				@"Data Source=PERSONAL\SQLEXPRESS;Initial Catalog=cash_app;User ID=sa;Password=0nly-n0is3; Persist Security Info=True;";
 
-            var connection_str_1 =
+			var connection_str_1 =
 				@"data source=www.ccmvservices.com, 36754;initial catalog=CCSoftDB;persist security info=True;user id=CCSoft;password=abcd.1234;";
-            return new SqlConnection( connection_str_1);
+			return new SqlConnection( connection_str_1);
         }
 
         public DataBaseHelper(IDbConnection cn)
@@ -191,12 +190,30 @@ namespace LibraryBapp
 
 		/*FUNCIONES ANTERIORES DE REFERENCIA*/
 
-       public long ValidateLogin(EmpresaUsuario user){
+		public EmpresaUsuario ValidateLogin(EmpresaUsuario user){
+			//todo: corregir funcion
+			var item =
+				_cn.Query<EmpresaUsuario>(
+					@"SELECT UsuarioId AS EmpresaUsuarioId, EmpresaId, Login, Clave
+					FROM FactElect.dbo.Usuario
+                    WHERE Clave = @Clave
+                    AND Login = @Login",
+					new { user.Clave, user.Login }
+				).SingleOrDefault();
+
+			if(item == null)
+				return new EmpresaUsuario{ EmpresaUsuarioId = 0};
+			else
+				return item;
+		}
+
+
+       public long ValidateLogin_0(EmpresaUsuario user){
            //todo: corregir funcion
            var item =
                 _cn.Query<EmpresaUsuario>(
-                    @"SELECT EmpresaUsuarioId
-                    FROM [PaymentDB].[dbo].[EmpresaUsuario]
+					@"SELECT UsuarioId AS EmpresaUsuarioId, EmpresaId, Login, Clave
+					FROM FactElect.dbo.Usuario
                     WHERE Clave = @Clave
                     AND Login = @Login",
                     new { user.Clave, user.Login }

@@ -177,14 +177,14 @@
     <Content Include="Views\Items\Index.cshtml" />
     <Content Include="Views\Items\Item.cshtml" />
     <Content Include="Views\ArchivoXml\Index.cshtml" />
-    <Content Include="Views\ArchivoXml\Miembro.cshtml" />
     <Content Include="Views\Certificados\Index.cshtml" />
     <Content Include="Views\Certificados\Item.cshtml" />
     <Content Include="Scripts\Admin\items.js" />
     <Content Include="Views\Facturacion\Item.cshtml" />
     <Content Include="Views\Facturacion\Index.cshtml" />
-    <Content Include="Scripts\Admin\archivoxml.js" />
     <Content Include="Scripts\Admin\certificados.js" />
+    <Content Include="Scripts\Admin\archivos.js" />
+    <Content Include="Views\ArchivoXml\Item.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

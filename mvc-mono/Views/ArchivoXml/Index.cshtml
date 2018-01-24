@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 
-<script src="~/Scripts/Admin/personal.js"></script>
+<script src="~/Scripts/Admin/archivos.js"></script>
 <div id="wrapper">
   <div class="content">
 	<div class="row">
@@ -12,14 +12,14 @@
 			<div class="panel_s">
 			  <div class="panel-body _buttons">
 			  	<h2 class="pull-left">@ViewData["Message"]</h2>
-				<a href="#" id="btn_add_empleados" class=" pull-right" ><i class="fa fa-plus"></i></a>
+				<a href="/ArchivoXml/Item" id="btn_add_archivos" class=" pull-right" ><i class="fa fa-plus"></i></a>
 				<a href="/Admin/Default/" class="pull-right"><i class="fa fa-remove"></i></a>
 			  </div>
 			</div>
 			<div class="panel_s">
 				<div class="panel-body">
 					<div class="clearfix"></div>
-					<div id="grid_empleados" ></div>
+					<div id="grid_archivos" ></div>
 				</div>
 			</div>
 		</div>
@@ -28,39 +28,3 @@
 </div>
 
 
-<div id="window_empleados" style="display:none;">
-	<form>
-		<input type="hidden" name="EmpresaId" value="0"/>
-		<div class="panel_s container" style="width:100%; min-height:100px;">
-			<div class="row">
-				<div class="col-md-12">
-					<label for="Nombre" class="control-label">Nombre</label>
-					<input type="text" name="Nombre" class="form-control" required validationMessage="* Ingresa el Nombre" >
-				</div>
-			</div>	
-			<div class="row padTop20">
-				<div class="col-md-12">
-					<label for="Telefono" class="control-label">Teléfono</label>
-					<input type="text" name="Telefono" class="form-control" required validationMessage="* Ingresa el Teléfono" >
-				</div>
-			</div>
-			<div class="row padTop20">
-				<div class="col-md-12">
-					<label for="Direccion" class="control-label">Direccion</label>
-					<input type="text" name="Direccion" class="form-control" required validationMessage="* Ingresa la Direccion" >
-				</div>
-			</div>
-
-			<div class="row padTop20">
-				<div class="col-md-12">
-					<label for="Status" class="control-label">Status</label>
-					<input type="text" name="Status" class="form-control" required validationMessage="* Ingresa el Status" >
-				</div>
-			</div>
-			
-		</div>
-		<div class="modal-footer">
-			<button type="submit" class="btn btn-info">Enviar</button>
-		</div>
-	</form>
-</div>

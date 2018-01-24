@@ -1,18 +1,18 @@
 ﻿<Properties StartupItem="mvc-mono/mvc-mono.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="chromium-browser" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../../media/jose/TOSHIBA EXT/working/Freelancer/CR - Facturacion/Documento sin título 1">
+  <MonoDevelop.Ide.Workbench ActiveDocument="mvc-mono/Controllers/ItemsController.cs">
     <Files>
-      <File FileName="../../../../../media/jose/TOSHIBA EXT/working/Freelancer/CR - Facturacion/Documento sin título 1" Line="53" Column="22" />
-      <File FileName="mvc-mono/Scripts/site.js" Line="484" Column="50" />
-      <File FileName="mvc-mono/Scripts/Admin/items.js" Line="97" Column="1" />
-      <File FileName="mvc-mono/Scripts/Admin/facturacion.js" Line="45" Column="7" />
-      <File FileName="mvc-mono/Views/Facturacion/Item.cshtml" Line="40" Column="11" />
-      <File FileName="mvc-mono/Controllers/FacturacionController.cs" Line="45" Column="4" />
+      <File FileName="mvc-mono/Controllers/ArchivoXmlController.cs" Line="50" Column="26" />
+      <File FileName="mvc-mono/Views/ArchivoXml/Item.cshtml" Line="22" Column="39" />
+      <File FileName="mvc-mono/Scripts/Admin/archivos.js" Line="20" Column="50" />
+      <File FileName="LibraryBapp/ArchivoXmlHelper.cs" Line="120" Column="19" />
+      <File FileName="mvc-mono/Controllers/ItemsController.cs" Line="34" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/home/jose/Documentos/dotnet/mvc-mono/mvc-mono/Controllers/PersonalController.cs" line="2" column="1" />
+      <Breakpoint file="/home/jose/Documentos/dotnet/cr-facturas-admin/mvc-mono/Controllers/AdminController.cs" line="53" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
